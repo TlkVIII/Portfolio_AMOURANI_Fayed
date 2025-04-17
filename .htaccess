@@ -1,0 +1,15 @@
+# Activer la réécriture d'URL
+RewriteEngine On
+
+# Si le fichier demandé n'existe pas physiquement
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rediriger toutes les requêtes vers le dossier Site_E-commerce/ProjetTransSEO
+RewriteRule ^Site_E-commerce/ProjetTransSEO/(.*)$ /Site_E-commerce/ProjetTransSEO/$1 [L]
+
+# Permettre l'accès aux ressources statiques
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch> 
